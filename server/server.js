@@ -4,7 +4,8 @@ const cors = require("cors");
 const path = require("path");
 const db = require("./models/db");
 const app = express();
-const PORT = 8000;
+// const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 const {
 	getTodos,
@@ -16,7 +17,7 @@ const {
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors());
+// app.use(cors());
 
 // app.use(
 // 	cors({
@@ -31,6 +32,14 @@ app.use(cors());
 // 		allowedHeaders: ["Content-Type"],
 // 	}),
 // );
+
+app.use(
+	cors({
+		origin: "https://your-frontend-domain.vercel.app", // Update this to match your deployed frontend URL
+		methods: ["GET", "POST", "PUT", "DELETE"],
+		allowedHeaders: ["Content-Type"],
+	}),
+);
 
 app.get("/allTodos", (req, res) => getTodos(req, res, db));
 app.get("/todos/:taskId", (req, res) => getOneTodo(req, res, db));

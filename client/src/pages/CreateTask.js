@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 function CreateTask() {
-	const [todos, setTodos] = useState([]);
 	const [inputValue, setInputValue] = useState("");
 
 	const handleInputChange = (event) => {
@@ -11,21 +10,11 @@ function CreateTask() {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
-		fetch("http://localhost:8000/todos", {
+		fetch("https://server-seven-beta-99.vercel.app/todos", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({ todo: inputValue }), // Send `todo` data to the server
-		})
-			.then((res) => res.json())
-			.then((newTodo) => {
-				// Add the new task to the existing todos
-				setTodos([...todos, newTodo]);
-				// Clear the input field
-				setInputValue("");
-			})
-			.catch((error) => {
-				console.error("Error creating task:", error);
-			});
+		});
 	};
 
 	return (
