@@ -5,7 +5,7 @@ function ViewTask() {
 	const [todos, setTodo] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:8000/allTodos")
+		fetch("https://server-seven-beta-99.vercel.app/allTodos")
 			.then((res) => res.json())
 			.then((todos) => {
 				console.log(todos);
