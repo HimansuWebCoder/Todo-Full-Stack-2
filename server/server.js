@@ -35,7 +35,7 @@ app.use(bodyParser.json());
 
 app.use(
 	cors({
-		origin: "https://your-frontend-domain.vercel.app", // Update this to match your deployed frontend URL
+		origin: "https://server-seven-beta-99.vercel.app", // Update this to match your deployed frontend URL
 		methods: ["GET", "POST", "PUT", "DELETE"],
 		allowedHeaders: ["Content-Type"],
 		credentials: true,
