@@ -38,6 +38,7 @@ app.use(
 		origin: "https://your-frontend-domain.vercel.app", // Update this to match your deployed frontend URL
 		methods: ["GET", "POST", "PUT", "DELETE"],
 		allowedHeaders: ["Content-Type"],
+		credentials: true,
 	}),
 );
 
