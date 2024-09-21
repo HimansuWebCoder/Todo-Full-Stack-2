@@ -12,8 +12,6 @@ function DeleteTask() {
 	function deleteTask() {
 		fetch(`http://localhost:8000/todos/${taskId}/deleteTask`, {
 			method: "delete",
-		}).then(() => {
-			navigate("/");
 		});
 	}
 

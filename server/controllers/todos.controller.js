@@ -75,6 +75,8 @@ function deleteTodo(req, res, db) {
 		.then((response) => {
 			if (response === 0) {
 				res.status(404).json({ error: "Todo not found" });
+				// res.redirect("/allTodos");
+				res.redirect("/todos/:taskId/editTask");
 			} else {
 				res.status(200).json(response);
 			}
